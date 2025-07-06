@@ -1,0 +1,38 @@
+{
+    "name": "EncryptZ Test Data",
+    "version": "1.0.0",
+    "description": "Sample JSON data for testing encryption",
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@example.com",
+            "preferences": {
+                "theme": "dark",
+                "notifications": true,
+                "language": "en"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane@example.com",
+            "preferences": {
+                "theme": "light",
+                "notifications": false,
+                "language": "es"
+            }
+        }
+    ],
+    "settings": {
+        "api_endpoint": "https://api.example.com/v1",
+        "timeout": 30000,
+        "retry_attempts": 3,
+        "encryption_enabled": true
+    },
+    "metadata": {
+        "created": "2025-01-01T00:00:00Z",
+        "last_modified": "2025-07-06T00:00:00Z",
+        "version": "1.2.3"
+    }
+}

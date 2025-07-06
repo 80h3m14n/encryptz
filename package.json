@@ -1,0 +1,55 @@
+{
+  "name": "encryptz",
+  "version": "1.0.0",
+  "description": "Encrypt/decrypt program that encrypts or decrypts text, files, or all files in a folder including subfolders, supporting various file types (e.g., images, videos, text files, etc.) using multiple algorithms for encryption while ensuring efficient handling of large files.",
+  "main": "src/main.ts",
+  "bin": "dist/main.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "build": "tsc",
+    "build:exe": "npm run build && npx pkg . --out-path ./bin",
+    "package": "npm run build:exe",
+    "dev": "nodemon --exec ts-node src/main.ts",
+    "encrypt": "ts-node src/main.ts encrypt",
+    "decrypt": "ts-node src/main.ts decrypt",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "pkg": {
+    "scripts": [
+      "dist/**/*.js"
+    ],
+    "targets": [
+      "latest-win-x64",
+      "latest-mac-x64",
+      "latest-linux-x64"
+    ],
+    "outputPath": "bin"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "node-rsa": "^1.1.1",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.19.4",
+    "@types/node-rsa": "^1.1.4",
+    "@types/prompts": "^2.4.9",
+    "nodemon": "^3.0.2",
+    "pkg": "^5.8.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "encryption",
+    "decryption",
+    "files",
+    "security"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

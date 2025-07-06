@@ -1,0 +1,14 @@
+Hello, World!
+
+This is a sample text file for testing EncryptZ encryption capabilities.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+The quick brown fox jumps over the lazy dog.
+1234567890!@#$%^&*()
+
+Special characters: áéíóú ñ ç ü ß αβγδε 中文 العربية русский
+
+This file contains various characters to test encryption robustness.
