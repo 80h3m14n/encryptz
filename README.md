@@ -1,10 +1,16 @@
 # 🔐 EncryptZ - Advanced File Encryption Tool
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue.svg)](ht## 🔒 Security Considerationsscriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-
 A powerful, user-friendly command-line tool for encrypting and decrypting files, directories, and text using multiple encryption algorithms. Built with TypeScript for maximum reliability and performance.
+
+
+## Common Use Cases
+
+- Backup Encryption
+
+- Secure File Transfer
+
+- Text Message Encryption
+
 
 ## ✨ Features
 
@@ -44,15 +50,24 @@ A powerful, user-friendly command-line tool for encrypting and decrypting files,
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/80h3m14n/encryptz.git
 cd encryptz
+```
 
+**Run the installation script:**
+```bash
+./install.sh
+```
+
+Or manually:
+```bash
 # Install dependencies
 npm install
 
 # Build the project
 npm run build
 ```
+
 
 ## 📖 Usage
 
@@ -85,10 +100,10 @@ npm start decrypt --file document.txt.encrypted --algorithm chacha20 --password 
 #### Encrypt/Decrypt Directories
 ```bash
 # Encrypt entire directory recursively
-npm start encrypt --directory ./documents --algorithm aes --password mypassword --recursive
+npm start encrypt --directory /examples --algorithm aes --password mypassword --recursive
 
 # Decrypt directory
-npm start decrypt --directory ./documents_encrypted --algorithm aes --password mypassword --recursive
+npm start decrypt --directory ./examples_encrypted --algorithm aes --password mypassword --recursive
 ```
 
 #### Encrypt/Decrypt Text
@@ -157,15 +172,32 @@ npm run clean
 - **Best For**: Real-time applications, mobile devices
 - **Security**: Modern, cryptographically secure
 
-## 📊 Performance Benchmarks
+## 📊 Performance Benchmarks (Algorithm Comparison)
 
-| Algorithm | File Size | Encryption Time | Memory Usage |
-|-----------|-----------|-----------------|--------------|
-| AES-256   | 10MB      | ~50ms          | Low          |
-| RSA-2048  | 10MB      | ~200ms         | Medium       |
-| ChaCha20  | 10MB      | ~30ms          | Low          |
+| Feature            | AES-256     | RSA-2048     | ChaCha20    |
+|--------------------|-------------|--------------|-------------|
+| Speed              | Fast        | Slow         | Fastest     |
+| Encryption Time    | ~50ms       | ~200ms       | ~30ms
+| Security           | Excellent   | Excellent    | Excellent   |
+| Password Required  | Yes         | No           | Yes         |
+| File Size Limit    | None        | None*        | None        |
+| Memory usage       | Low         | Medium       | Low         |
+| Best For           | General use | Key exchange | High performance |
+
+*RSA uses hybrid encryption for large files
 
 *Benchmarks performed on Intel i7-10700K, results may vary*
+
+
+
+
+### Performance issues with large files
+- Use ChaCha20 for fastest encryption
+- Ensure sufficient RAM for very large files
+- Consider encrypting in smaller batches for huge datasets
+- Use AES for best compatibility and security standards
+- Use RSA only for small files or when asymmetric encryption is required
+
 
 ## 🏗️ Project Structure
 
@@ -266,6 +298,12 @@ npm test -- encryption.test.ts
 **Error: "Cannot find module 'crypto'"**
 - Ensure you're using Node.js 18+ which includes the crypto module
 
+```bash
+# Reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
+```
+
 **Error: "Password required for AES/ChaCha20"**
 - AES and ChaCha20 require passwords. Use `--password` flag or let the tool prompt you
 
@@ -277,15 +315,22 @@ npm test -- encryption.test.ts
 - The tool uses streaming for large files, but ensure adequate system memory
 - For very large files (>1GB), consider breaking them into smaller chunks
 
-### Performance Tips
+**TypeScript compilation errors**
+```bash
+# Check TypeScript configuration
+npm run lint
+npm run build
+```
 
-- Use ChaCha20 for fastest encryption on modern CPUs
-- Use AES for best compatibility and security standards
-- Use RSA only for small files or when asymmetric encryption is required
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue.svg)](ht## 🔒 Security Considerationsscriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+
 
 ## 🙏 Acknowledgments
 
