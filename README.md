@@ -74,45 +74,56 @@ npm run build
 ### Basic Commands
 
 #### Encrypt a File
+
+
 ```bash
 # Using AES encryption (requires password)
-npm start encrypt --file document.txt --algorithm aes --password mypassword
+npm start -- encrypt --file document.txt --algorithm aes --password mypassword
+npm run encrypt -- --file [sample.txt]
 
 # Using RSA encryption (generates key pair automatically)
-npm start encrypt --file document.txt --algorithm rsa
+npm start -- encrypt --file document.txt --algorithm rsa
 
 # Using ChaCha20 encryption (requires password)
-npm start encrypt --file document.txt --algorithm chacha20 --password mypassword
+npm start -- encrypt --file document.txt --algorithm chacha20 --password mypassword
+
+# Interactive Mode
+# The tool will prompt for password if not provided
+npm start -- encrypt --file document.txt --algorithm aes
+# Password will be prompted securely (hidden input)
 ```
 
 #### Decrypt a File
+
 ```bash
 # Decrypt with AES
-npm start decrypt --file document.txt.encrypted --algorithm aes --password mypassword
+npm start -- decrypt --file document.txt.encrypted --algorithm aes --password mypassword
 
 # Decrypt with RSA
-npm start decrypt --file document.txt.encrypted --algorithm rsa
+npm start -- decrypt --file document.txt.encrypted --algorithm rsa
 
 # Decrypt with ChaCha20
-npm start decrypt --file document.txt.encrypted --algorithm chacha20 --password mypassword
+npm start -- decrypt --file document.txt.encrypted --algorithm chacha20 --password mypassword
 ```
 
-#### Encrypt/Decrypt Directories
+### Encrypt/Decrypt Directories
+
 ```bash
 # Encrypt entire directory recursively
-npm start encrypt --directory /examples --algorithm aes --password mypassword --recursive
+npm start -- encrypt --directory /examples --algorithm aes --password mypassword --recursive
 
 # Decrypt directory
-npm start decrypt --directory ./examples_encrypted --algorithm aes --password mypassword --recursive
+npm start -- decrypt --directory ./examples_encrypted --algorithm aes --password mypassword --recursive
 ```
 
-#### Encrypt/Decrypt Text
+### Encrypt/Decrypt Text
+
 ```bash
 # Encrypt text directly
-npm start encrypt --text "Hello, World!" --algorithm aes --password mypassword
+npm start -- encrypt --text "Hello, World!" --algorithm aes --password mypassword
 
 # Decrypt text (provide base64 encoded encrypted text)
-npm start decrypt --text "base64EncodedText" --algorithm aes --password mypassword
+npm start -- decrypt --text "base64EncodedText" --algorithm aes --password mypassword
 ```
 
 ### Advanced Options
@@ -120,18 +131,13 @@ npm start decrypt --text "base64EncodedText" --algorithm aes --password mypasswo
 #### Custom Output Paths
 ```bash
 # Specify output file
-npm start encrypt --file input.txt --output encrypted_output.txt --algorithm aes
+npm start -- encrypt --file input.txt --output encrypted_output.txt --algorithm aes
 
 # Specify output directory
-npm start encrypt --directory ./source --output ./encrypted_backup --algorithm chacha20
+npm start -- encrypt --directory ./source --output ./encrypted_backup --algorithm chacha20
 ```
 
-#### Interactive Mode
-```bash
-# The tool will prompt for password if not provided
-npm start encrypt --file document.txt --algorithm aes
-# Password will be prompted securely (hidden input)
-```
+
 
 ### Available Scripts
 
@@ -284,7 +290,7 @@ npm test -- encryption.test.ts
 
 ## 📝 Changelog
 
-### Version 1.0.0
+### Version 0.0.1 - 2025-12-01
 - Initial release
 - AES, RSA, and ChaCha20 encryption support
 - CLI interface with progress indicators
