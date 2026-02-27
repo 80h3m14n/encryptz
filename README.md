@@ -2,6 +2,8 @@
 
 A powerful, user-friendly command-line tool for encrypting and decrypting files, directories, and text using multiple encryption algorithms. Built with TypeScript for maximum reliability and performance.
 
+if your goal is pure encryption/decryption and you’re comfortable with CLI flags, tools like `openssl` absolutely covers most of this. Where EncryptZ can still add value is convenience, not cryptographic capability:
+
 
 ## Common Use Cases
 
@@ -15,6 +17,7 @@ A powerful, user-friendly command-line tool for encrypting and decrypting files,
 ## ✨ Features
 
 - **🔒 Multiple Encryption Algorithms**
+
   - **AES-256-GCM**: Industry-standard symmetric encryption with authentication
   - **RSA-2048**: Asymmetric encryption for secure key exchange (hybrid mode for large files)
   - **ChaCha20**: High-performance stream cipher designed for security and speed
@@ -297,36 +300,6 @@ npm test -- encryption.test.ts
 - Directory and file encryption
 - Text encryption capabilities
 
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Error: "Cannot find module 'crypto'"**
-- Ensure you're using Node.js 18+ which includes the crypto module
-
-```bash
-# Reinstall dependencies
-rm -rf node_modules package-lock.json
-npm install
-```
-
-**Error: "Password required for AES/ChaCha20"**
-- AES and ChaCha20 require passwords. Use `--password` flag or let the tool prompt you
-
-**Error: "File does not exist"**
-- Check file path spelling and permissions
-- Use absolute paths if relative paths cause issues
-
-**Memory issues with large files**
-- The tool uses streaming for large files, but ensure adequate system memory
-- For very large files (>1GB), consider breaking them into smaller chunks
-
-**TypeScript compilation errors**
-```bash
-# Check TypeScript configuration
-npm run lint
-npm run build
-```
 
 
 ## 📄 License
@@ -334,7 +307,7 @@ npm run build
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue.svg)](ht## 🔒 Security Considerationsscriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue.svg)](https://typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 
 
